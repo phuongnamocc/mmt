@@ -1,0 +1,193 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a API of MMT",
+    "version": "1.0.0",
+    "title": "Travellog API",
+    "contact": {
+      "email": "MMT@gmail.com",
+      "name": "My Messenger Team"
+    },
+    "servers": [
+      "http://localhost:3000"
+    ]
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "/"
+        ],
+        "summary": "Get response from main page",
+        "description": "Get response from main page",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "We are at server"
+          }
+        }
+      }
+    },
+    "/create": {
+      "post": {
+        "tags": [
+          "/users"
+        ],
+        "parameters": [
+          {
+            "name": "post",
+            "in": "body",
+            "description": "what do you want to post",
+            "schema": {
+              "$ref": "#/definitions/post"
+            }
+          }
+        ],
+        "summary": "Post to mongodb atlas, the get response.",
+        "description": "post any thing you want",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get back json data"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "/users"
+        ],
+        "summary": "Login to system",
+        "description": "",
+        "parameters": [
+          {
+            "name": "login",
+            "in": "body",
+            "description": "Login to systems",
+            "schema": {
+              "$ref": "#/definitions/login"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User registered"
+          }
+        }
+      }
+    },
+    "/auth/signup": {
+      "post": {
+        "tags": [
+          "/users"
+        ],
+        "parameters": [
+          {
+            "name": "users",
+            "in": "body",
+            "description": "Add new users",
+            "schema": {
+              "$ref": "#/definitions/users"
+            }
+          }
+        ],
+        "summary": "Resgiter a new account",
+        "description": "Create new account",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User registered"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "post": {
+      "required": [
+        "title",
+        "content",
+        "image"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        }
+      }
+    },
+    "contacts": {
+      "required": [
+        "name",
+        "email",
+        "message"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "users": {
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "login": {
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
